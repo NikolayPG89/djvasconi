@@ -755,10 +755,21 @@ function Booking() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || !json.ok) {
-        throw new Error(json?.error || "send_failed");
+
+      let payload: Record<string, unknown> = {};
+      const text = await res.text();
+      if (text) {
+        try {
+          payload = JSON.parse(text) as Record<string, unknown>;
+        } catch {
+          payload = {};
+        }
       }
+
+      if (!res.ok || payload.ok === false) {
+        throw new Error((payload as Record<string, unknown>).error ? String((payload as Record<string, unknown>).error) : "send_failed");
+      }
+
       reset();
     } catch (err) {
       console.error("Booking submit failed", err);

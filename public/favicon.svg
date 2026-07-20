@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DJ Vasconi">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#05070A"/>
+      <stop offset="100%" stop-color="#0D1320"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#0080FF"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="vGrad" x1="120" y1="120" x2="392" y2="392" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#bg)"/>
+  <g filter="url(#glow)">
+    <circle cx="256" cy="256" r="210" fill="none" stroke="url(#blue)" stroke-width="14"/>
+    <circle cx="256" cy="256" r="198" fill="none" stroke="#0A2463" stroke-width="2" opacity="0.4"/>
+    <path d="M 160 256 A 96 96 0 0 0 256 352" fill="none" stroke="url(#blue)" stroke-width="4" opacity="0.35" stroke-linecap="round"/>
+    <path d="M 145 256 A 111 111 0 0 0 256 367" fill="none" stroke="url(#blue)" stroke-width="3" opacity="0.25" stroke-linecap="round"/>
+    <path d="M 130 256 A 126 126 0 0 0 256 382" fill="none" stroke="url(#blue)" stroke-width="2" opacity="0.15" stroke-linecap="round"/>
+    <path d="M 172 158 L 256 300 L 340 158 L 310 158 L 256 258 L 202 158 Z" fill="url(#vGrad)"/>
+    <path d="M 340 158 L 340 260 A 32 32 0 1 1 320 285 L 320 158 Z" fill="url(#vGrad)"/>
+    <ellipse cx="320" cy="285" rx="24" ry="19" fill="url(#vGrad)" transform="rotate(-12 320 285)"/>
+    <text x="256" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="4" fill="#00E5FF">DJ VASCONI</text>
+  </g>
+</svg>
