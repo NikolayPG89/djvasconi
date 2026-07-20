@@ -1,0 +1,45 @@
+# SPA routing for Apache/LiteSpeed (SuperHosting and similar shared hosting).
+# Serves real files/directories as-is; everything else falls back to index.html
+# so React Router can handle client-side routing.
+
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Do not rewrite existing files or directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Fallback: send everything else to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Cache hashed assets aggressively (Vite outputs hashed filenames in /assets/)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:js|css|woff2?|ttf|otf|eot|svg|png|jpg|jpeg|gif|webp|avif|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Never cache index.html so new deploys are picked up immediately
+  <FilesMatch "index\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# UTF-8 default charset (important for Cyrillic content)
+AddDefaultCharset UTF-8
+
+# Basic security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
