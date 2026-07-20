@@ -879,9 +879,9 @@ function Contact() {
     { icon: Phone, label: "Телефон", value: "+359 877 333 500", href: "tel:+359877333500" },
     { icon: Mail, label: "Имейл", value: "service@djvasconi.bg", href: "mailto:service@djvasconi.bg" },
     { icon: MessageCircle, label: "WhatsApp", value: "Пиши в WhatsApp", href: "https://wa.me/359877333500" },
-    { icon: Instagram, label: "Instagram", value: "@djvasconi", href: "https://instagram.com" },
-    { icon: Facebook, label: "Facebook", value: "/djvasconiofficial", href: "https://facebook.com" },
-    { icon: Music2, label: "TikTok", value: "@djvasconi", href: "https://tiktok.com" },
+    { icon: Instagram, label: "Instagram", value: "@djvasconi", href: "https://instagram.com/djvasconi" },
+    { icon: Facebook, label: "Facebook", value: "/djvasconiofficial", href: "https://facebook.com/djvasconiofficial" },
+    { icon: Music2, label: "TikTok", value: "@djvasconi", href: "https://www.tiktok.com/@djvasconi" },
   ];
   return (
     <section id="contact" className="relative py-28 px-4">
@@ -890,8 +890,13 @@ function Contact() {
           <SectionHeader eyebrow="Контакти" title="Свържи се с мен" />
           <div className="grid sm:grid-cols-2 gap-4">
             {items.map((c) => (
-              <a key={c.label} href={c.href} target="_blank" rel="noreferrer"
-                className="group glass rounded-2xl p-5 flex items-center gap-4 hover:border-accent transition">
+              <a
+                key={c.label}
+                href={c.href}
+                target={c.href.startsWith("mailto:") || c.href.startsWith("tel:") ? "_self" : "_self"}
+                rel="noopener noreferrer"
+                className="group glass rounded-2xl p-5 flex items-center gap-4 hover:border-accent transition"
+              >
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-[oklch(0.72_0.22_240)]/20 to-[oklch(0.68_0.26_300)]/20 text-accent">
                   <c.icon className="h-5 w-5" />
                 </div>
@@ -932,11 +937,27 @@ function Footer() {
           <p className="mt-3 text-sm text-muted-foreground max-w-xs">Професионален DJ за сватби, частни събития, клубове и фестивали в цяла България.</p>
         </div>
         <div className="flex justify-center gap-4">
-          {[Instagram, Facebook, Youtube, Music2, MessageCircle].map((Icon, i) => (
-            <a key={i} href="#" className="grid h-10 w-10 place-items-center rounded-full glass hover:text-accent transition" aria-label="social">
-              <Icon className="h-4 w-4" />
-            </a>
-          ))}
+          {[Instagram, Facebook, Youtube, Music2, MessageCircle].map((Icon, i) => {
+            const hrefs = [
+              "https://instagram.com/djvasconi",
+              "https://facebook.com/djvasconiofficial",
+              "https://www.youtube.com/@djvasconi",
+             "https://www.tiktok.com/@djvasconi",
+              "https://wa.me/359877333500",
+            ];
+            return (
+              <a
+                key={i}
+                href={hrefs[i]}
+               target="_self"
+                rel="noopener noreferrer"
+               className="grid h-10 w-10 place-items-center rounded-full glass hover:text-accent transition"
+               aria-label="social"
+             >
+                <Icon className="h-4 w-4" />
+              </a>
+            );
+          })}
         </div>
         <div className="flex md:justify-end items-center gap-6 text-xs text-muted-foreground">
           <a href="#" className="hover:text-foreground">Поверителност</a>
