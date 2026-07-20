@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
@@ -25,7 +25,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy via FTP
+      - name: Deploy to SuperHosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -33,6 +33,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          local-dir: ./dist/
+          local-dir: ./.output/public/
           server-dir: /public_html/
           dangerous-clean-slate: false
