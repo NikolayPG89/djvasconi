@@ -941,7 +941,7 @@ function Footer() {
             const hrefs = [
               "https://instagram.com/djvasconi",
               "https://facebook.com/djvasconiofficial",
-              "https://www.youtube.com/@djvasconi",
+             "https://www.youtube.com/@%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2-%D1%801%D1%8C",
              "https://www.tiktok.com/@djvasconi",
               "https://wa.me/359877333500",
             ];
