@@ -740,6 +740,29 @@ const bookingSchema = z.object({
 });
 type BookingValues = z.infer<typeof bookingSchema>;
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function trackGoogleAdsConversion() {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+    return;
+  }
+
+  const transactionId =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : `booking-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+
+  window.gtag("event", "conversion", {
+    send_to: "AW-18342822860/wIeuCOjXmdYcEMyHxapE",
+    transaction_id: transactionId,
+  });
+}
+
 function Booking() {
   const {
     register, handleSubmit, reset, formState: { errors, isSubmitSuccessful, isSubmitting },
@@ -770,6 +793,7 @@ function Booking() {
         throw new Error((payload as Record<string, unknown>).error ? String((payload as Record<string, unknown>).error) : "send_failed");
       }
 
+      trackGoogleAdsConversion();
       reset();
     } catch (err) {
       console.error("Booking submit failed", err);
