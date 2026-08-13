@@ -376,7 +376,8 @@ function Packages() {
               </div>
               <div className="text-left md:text-right">
                 <div className="text-xs uppercase tracking-widest text-muted-foreground">Цена</div>
-                <div className="text-xl font-bold text-accent">По запитване</div>
+                <div className="text-xl font-bold text-accent">75 €/час</div>
+                <div className="mt-1 text-xs text-muted-foreground">Допълнително време: 75 € за всеки започнат час</div>
               </div>
             </div>
 
@@ -436,7 +437,7 @@ function DurationSection() {
     {
       icon: Heart,
       title: "Сватби",
-      hours: "6",
+      hours: "5",
       label: "астрономически часа",
       desc: "Пълен звуков и светлинен сет, включващ подготовка, коктейл, вечеря и купон до късно.",
     },
