@@ -10,8 +10,8 @@ import {
   PartyPopper, Cake, Sparkles, Trophy, Radio, ChevronRight,
   Quote, ArrowRight, Youtube, Headphones, Check, Package, Clock,
 } from "lucide-react";
-import heroImg from "@/assets/8244.jpg";
-import djPortrait from "@/assets/dj-portrait.jpg";
+import heroImg from "@/assets/hero.jpg";
+import djPortrait from "@/assets/8244.jpg";
 import g1 from "@/assets/g1.jpg";
 import g2 from "@/assets/g2.jpg";
 import g3 from "@/assets/g3.jpg";
@@ -189,7 +189,7 @@ function Hero() {
   return (
       <section id="top" ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        <img src={heroImg} alt="DJ Vasconi с микрофон в ръка" width={6048} height={8064} className="h-full w-full object-cover object-[35%_20%] md:object-[center_20%] scale-110" />
+        <img src={heroImg} alt="DJ по време на изява пред публика" width={1920} height={1080} className="h-full w-full object-cover scale-110" />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
@@ -290,7 +290,7 @@ function About() {
             Дълги години музиката беше моето хоби и най–голямата ми страст. Извървях пътя напред и превърнах тази любов в своя професия. Когато застана зад пулта, изпитвам истинско удоволствие и съпреживявам емоцията наравно с гостите.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Мотото ми е: <strong>„Вашият празник, е празник и за мен!“</strong>
+            <strong>„Вашият празник, е празник и за мен!“</strong>
           </p>
 
           <div className="mt-8">
