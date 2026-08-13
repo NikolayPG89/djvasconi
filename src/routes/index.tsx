@@ -10,7 +10,7 @@ import {
   PartyPopper, Cake, Sparkles, Trophy, Radio, ChevronRight,
   Quote, ArrowRight, Youtube, Headphones, Check, Package, Clock,
 } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
+import heroImg from "@/assets/8244.jpg";
 import djPortrait from "@/assets/dj-portrait.jpg";
 import g1 from "@/assets/g1.jpg";
 import g2 from "@/assets/g2.jpg";
@@ -189,7 +189,7 @@ function Hero() {
   return (
       <section id="top" ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        <img src={heroImg} alt="DJ по време на изява пред публика" width={1920} height={1080} className="h-full w-full object-cover scale-110" />
+        <img src={heroImg} alt="DJ Vasconi с микрофон в ръка" width={6048} height={8064} className="h-full w-full object-cover object-[35%_20%] md:object-[center_20%] scale-110" />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
@@ -213,12 +213,6 @@ function Hero() {
         >
           DJ <span className="text-gradient">{DJ_NAME}</span>
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-6 max-w-2xl text-sm md:text-lg text-muted-foreground uppercase tracking-[0.25em]"
-        >
-          Професионален DJ · Сватби · Частни събития · Клубове · Корпоративни партита
-        </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
@@ -284,16 +278,19 @@ function About() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent" /> За мен
           </div>
           <h2 className="mt-4 font-[Space_Grotesk] text-4xl md:text-5xl font-bold tracking-tight">
-            Звук, който <span className="text-gradient">движи залите.</span>
+            От страстта към музиката до <span className="text-gradient">професионалния пулт</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-Vasconi е един от най-търсените DJ-и в България, който смесва ъндърграунд енергия с блясъка на голямата сцена.
-            От интимни сватби в Арбанаси и Пловдив, през sunrise сетове по Черноморието, до корпоративни галавечери
-            в София — сетовете му са създадени с една цел: да държат дансинга пълен.
+            Здравейте!
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            10+ години опит, 40 000+ песни и доказан усет към настроението на публиката.
-            Музика, подбрана специално за вашето събитие.
+            Аз съм диджей Васкони.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Дълги години музиката беше моето хоби и най–голямата ми страст. Извървях пътя напред и превърнах тази любов в своя професия. Когато застана зад пулта, изпитвам истинско удоволствие и съпреживявам емоцията наравно с гостите.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Мотото ми е: <strong>„Вашият празник, е празник и за мен!“</strong>
           </p>
 
           <div className="mt-8">
