@@ -7,7 +7,7 @@ import { z } from "zod";
 import {
   Menu, X, Calendar, MapPin, Users, Star, Phone, Mail,
   Instagram, Facebook, Music2, MessageCircle, Heart, Building2,
-  PartyPopper, Cake, Sparkles, Trophy, Radio, ChevronRight,
+  PartyPopper, Cake, Sparkles, ChevronRight,
   Quote, ArrowRight, Youtube, Headphones, Check, Package, Clock,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
@@ -43,20 +43,11 @@ const nav = [
 
 const genres = ["Поп-фолк", "Бг естрада", "Бг Поп", "Балкански хитове", "Ориенталска", "Фолклор", "Сръбска", "Гръцка", "Ретро балканска"];
 
-const stats = [
-  { value: "500+", label: "Изсвирени събития" },
-  { value: "10+", label: "Години опит" },
-  { value: "100+", label: "Доволни клиенти" },
-];
-
 const services = [
   { icon: Heart, title: "Сватби", desc: "Уникален саундтрак, създаден специално за вашата любовна история." },
   { icon: Building2, title: "Корпоративни събития", desc: "Изтънчена атмосфера за брандови представяния, галавечери и конференции." },
   { icon: PartyPopper, title: "Частни партита", desc: "Интимна енергия за най-важните гости." },
   { icon: Cake, title: "Рождени дни", desc: "От детски празници до кръгли годишнини — незабравими вечери." },
-  { icon: Radio, title: "Клубове", desc: "Резиденции в пиково време с фирмени сетове през различни жанрове." },
-  { icon: Sparkles, title: "Фестивали", desc: "Енергия за главна сцена, създадена за големи тълпи." },
-  { icon: Trophy, title: "Луксозни събития", desc: "Яхти, вили, пентхауси — дискретна, висок клас продукция." },
 ];
 
 const gallery = [
@@ -264,10 +255,6 @@ function About() {
           <div className="relative overflow-hidden rounded-3xl border border-border">
             <img src={djPortrait} alt="DJ Vasconi portrait" width={900} height={1200} loading="lazy" className="w-full h-auto object-cover" />
           </div>
-          <div className="absolute -bottom-6 -right-6 glass rounded-2xl p-5 shadow-[var(--shadow-glass)]">
-            <div className="text-3xl font-[Space_Grotesk] font-bold text-gradient">10+</div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground">Години на сцена</div>
-          </div>
         </motion.div>
 
         <motion.div
@@ -304,14 +291,6 @@ function About() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
-            {stats.map((s) => (
-              <div key={s.label} className="glass rounded-2xl p-5 text-center">
-                <div className="text-2xl md:text-3xl font-[Space_Grotesk] font-bold text-gradient">{s.value}</div>
-                <div className="mt-1 text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground">{s.label}</div>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>
