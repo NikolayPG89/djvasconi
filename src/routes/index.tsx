@@ -5,19 +5,18 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
-  Menu, X, Calendar, MapPin, Users, Star, Phone, Mail,
+  Menu, X, Star, Phone, Mail,
   Instagram, Facebook, Music2, MessageCircle, Heart, Building2,
   PartyPopper, Cake, Sparkles, ChevronRight,
   Quote, ArrowRight, Youtube, Headphones, Check, Package, Clock,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import djPortrait from "@/assets/8244.jpg";
-import g1 from "@/assets/g1.jpg";
-import g2 from "@/assets/g2.jpg";
-import g3 from "@/assets/g3.jpg";
-import g4 from "@/assets/g4.jpg";
-import g5 from "@/assets/g5.jpg";
-import g6 from "@/assets/g6.jpg";
+import gallery8127 from "@/assets/8127.jpg";
+import gallery8234 from "@/assets/8234.jpg";
+import gallery8237 from "@/assets/8237.jpg";
+import gallery8240 from "@/assets/8240.jpg";
+import gallery8511 from "@/assets/8511.webp";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -37,7 +36,6 @@ const nav = [
   { label: "Времетраене", href: "#duration" },
   { label: "Галерия", href: "#gallery" },
   { label: "Музика", href: "#music" },
-  { label: "Събития", href: "#events" },
   { label: "Контакти", href: "#contact" },
 ];
 
@@ -51,26 +49,26 @@ const services = [
 ];
 
 const gallery = [
-  { src: g2, alt: "Фестивална публика с конфети и лазери", h: "row-span-2" },
-  { src: g1, alt: "DJ пулт в едър план с неонови светлини" },
-  { src: g3, alt: "Луксозна сватбена вечер с DJ бут" },
-  { src: g4, alt: "Лазерно шоу в нощен клуб", h: "row-span-2" },
-  { src: g5, alt: "Силует на DJ на фестивална сцена" },
-  { src: g6, alt: "Корпоративна галавечер" },
+  { src: gallery8237, alt: "DJ Vasconi зад пулта с професионална озвучителна система" },
+  { src: gallery8127, alt: "DJ оборудване за събитие на открито" },
+  { src: gallery8234, alt: "DJ пулт и контролер за сценично осветление" },
+  { src: gallery8240, alt: "DJ Vasconi с микрофон зад пулта" },
+  { src: gallery8511, alt: "Професионално DJ оборудване и контролни пултове" },
 ];
 
-const videos = [
-  { id: "1", title: "Sunset Set — Черноморец 2025", views: "1.2M гледания", ytId: "5qap5aO4i9A" },
-  { id: "2", title: "Сватбен highlight — Арбанаси", views: "384K гледания", ytId: "jfKfPfyJRdk" },
-  { id: "3", title: "SPICE Music Festival — Warm-up", views: "2.4M гледания", ytId: "MYPVQccHhAQ" },
-];
-
-const events = [
-  { date: "14 МАР", city: "София", venue: "Sofia Live Club", type: "Клубна резиденция" },
-  { date: "02 АПР", city: "Пловдив", venue: "Хотел Империал — частна сватба", type: "Сватба" },
-  { date: "18 МАЙ", city: "Варна", venue: "Гранд Хотел Варна", type: "Луксозно събитие" },
-  { date: "21 ЮЛ", city: "Бургас", venue: "SPICE Music Festival", type: "Фестивал" },
-  { date: "09 АВГ", city: "Слънчев бряг", venue: "Cacao Beach Club", type: "Клуб" },
+const musicLinks = [
+  {
+    title: "Monika x Vasil Chergov x Inela x V-band - Neda odi (Cover), 2026",
+    href: "https://www.youtube.com/watch?v=WcqM-0_4fbI&list=RDWcqM-0_4fbI&start_radio=1",
+  },
+  {
+    title: "ВАНЕСА Х АНЕЛИЯ – Пума | VANESA X ANELIA - Puma (Official Video) 2026",
+    href: "https://www.youtube.com/watch?v=DLNYeZvo604&list=RDDLNYeZvo604&start_radio=1",
+  },
+  {
+    title: "SERIF KONJEVIC - 100 KAFANA (OFFICIAL VIDEO)",
+    href: "https://www.youtube.com/watch?v=czShzrTKCu0&list=RDczShzrTKCu0&start_radio=1",
+  },
 ];
 
 const testimonials = [
@@ -507,17 +505,17 @@ function Gallery() {
   return (
     <section id="gallery" className="relative py-28 px-4">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow="Галерия" title="Иззад пулта" subtitle="Поглед към последните вечери, сватби и фестивални сцени." />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] gap-4">
+        <SectionHeader eyebrow="Галерия" title="Моменти в кадър" />
+        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {gallery.map((img, i) => (
             <motion.button
-              key={i}
+              key={img.src}
               onClick={() => setLightbox(img.src)}
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.05 }}
-              className={`group relative overflow-hidden rounded-2xl border border-border/60 ${img.h || ""}`}
+              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-border/60"
             >
-              <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={img.src} alt={img.alt} loading="lazy" className="h-auto w-full transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/0 to-background/0 opacity-0 group-hover:opacity-100 transition" />
               <div className="absolute bottom-3 left-3 right-3 text-left text-xs text-white/90 opacity-0 group-hover:opacity-100 transition">
                 {img.alt}
@@ -548,106 +546,31 @@ function Gallery() {
   );
 }
 
-function Videos() {
-  return (
-    <section id="videos" className="relative py-28 px-4">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow="Видеа" title="Живи сетове и акценти" />
-        <div className="grid gap-6 md:grid-cols-3">
-          {videos.map((v, i) => (
-            <motion.div
-              key={v.id}
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-3xl border border-border/60 bg-card/40 backdrop-blur-xl hover:border-accent/60 transition"
-            >
-              <div className="relative aspect-video overflow-hidden bg-black">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${v.ytId}`}
-                  title={v.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full"
-                />
-              </div>
-              <div className="p-5 flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="font-[Space_Grotesk] text-lg font-semibold">{v.title}</h3>
-                  <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">{v.views}</div>
-                </div>
-                <Youtube className="h-5 w-5 text-accent shrink-0" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function MusicSection() {
   return (
     <section id="music" className="relative py-28 px-4">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow="Музика" title="Чуй" subtitle="Авторски миксове и подбрани плейлисти." />
-        <div className="grid gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="overflow-hidden rounded-3xl border border-border/60 bg-card/40 backdrop-blur-xl mx-auto w-full max-w-3xl"
-          >
-            <div className="p-5 flex items-center gap-3 border-b border-border/60">
-              <Music2 className="h-5 w-5 text-accent" />
-              <div className="font-[Space_Grotesk] font-semibold">Spotify — DJ Vasconi Essentials</div>
-            </div>
-            <iframe
-              title="Spotify playlist"
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
-              width="100%"
-              height="400"
-              frameBorder="0"
-              loading="lazy"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Events() {
-  return (
-    <section id="events" className="relative py-28 px-4">
-      <div className="mx-auto max-w-5xl">
-        <SectionHeader eyebrow="Тур" title="Предстоящи събития" subtitle="Хвани сет из България този сезон." />
-        <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent md:-translate-x-1/2" />
-          <div className="space-y-8">
-            {events.map((e, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.05 }}
-                className={`relative md:grid md:grid-cols-2 md:gap-10 items-center ${i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"}`}
-              >
-                <div className="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 h-3 w-3 rounded-full bg-gradient-to-br from-[oklch(0.72_0.22_240)] to-[oklch(0.68_0.26_300)] neon-glow" />
-                <div className={`pl-12 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-10" : "md:pl-10"}`}>
-                  <div className="glass rounded-2xl p-5">
-                    <div className="flex items-center gap-2 text-accent text-xs uppercase tracking-widest">
-                      <Calendar className="h-3.5 w-3.5" /> {e.date}
-                    </div>
-                    <h3 className="mt-2 font-[Space_Grotesk] text-xl font-semibold">{e.venue}</h3>
-                    <div className="mt-1 text-sm text-muted-foreground flex items-center gap-2 md:justify-inherit">
-                      <MapPin className="h-3.5 w-3.5" /> {e.city} · {e.type}
-                    </div>
-                  </div>
+        <SectionHeader eyebrow="Музика" title="Музикална селекция" />
+        <div className="grid gap-6 md:grid-cols-3">
+          {musicLinks.map((item, i) => (
+            <motion.a
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group overflow-hidden rounded-3xl border border-border/60 bg-card/40 p-5 backdrop-blur-xl hover:border-accent/60 transition"
+            >
+              <div className="flex items-center gap-3">
+                <Youtube className="h-5 w-5 shrink-0 text-accent" />
+                <div>
+                  <div className="font-[Space_Grotesk] font-semibold">{item.title}</div>
+                  <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground group-hover:text-accent transition-colors">Гледай в YouTube</div>
                 </div>
-                <div />
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.a>
+          ))}
         </div>
       </div>
     </section>
@@ -991,9 +914,7 @@ export function Index() {
       <Packages />
       <DurationSection />
       <Gallery />
-      <Videos />
       <MusicSection />
-      <Events />
       <Testimonials />
       <Booking />
       <Contact />
