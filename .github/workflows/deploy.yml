@@ -23,16 +23,16 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build
+        run: npm run build:spa
 
       - name: Deploy to SuperHosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          server: ${{ secrets.PROD_FTP_SERVER }}
+          username: ${{ secrets.PROD_FTP_USERNAME }}
+          password: ${{ secrets.PROD_FTP_PASSWORD }}
+          protocol: ftps
           port: 21
-          local-dir: ./.output/public/
+          local-dir: ./dist/
           server-dir: /public_html/
           dangerous-clean-slate: false
